@@ -34,4 +34,20 @@ export const login = async (req: Request, res: Response) => {
     const token = jwt.sign({ id: user._id, role: user.role }, config.SECRET);
     return { token };
   };
+
+  /////Find user/////
+export const findUser = async (ID, token) => {
+    if (token.role !== "ADMIN") {
+      return await User.find({ _id: token.id });
+    }
+    try {
+      if(ID === 'ADMIN' || ID === 'USER'){
+        return await User.find({role: ID})
+      }
+      return await User.find({ _id: ID });
+  
+    } catch (err) {
+      throw new Error("NOT_FOUND");
+    }
+  };
   
