@@ -51,3 +51,26 @@ export const findUser = async (ID, token) => {
     }
   };
   
+  /////Update user/////
+export const updateUser = async (ID, data, token) => {
+
+    data.password = await bcrypt.hash(data.password, config.HASH_ROUNDS);
+   
+    if (token.role !== "ADMIN") {
+  
+      return await User.findOneAndUpdate(
+        { _id: token.id },
+        {
+          email: data.email,
+          password: data.password,
+        },
+        { new: true }
+      );
+      
+    }
+    return await User.findOneAndUpdate(
+      { _id: ID},
+      data,
+      { new: true }
+    );
+  };
