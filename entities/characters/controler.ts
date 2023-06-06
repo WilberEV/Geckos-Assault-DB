@@ -3,17 +3,17 @@ import { Request, Response } from "express";
 
 /////Create character/////
 export const createChara = async (data) => {
-    if (
-      !data.name || data.name == ''
-    )
-      throw new Error("INVALID_NAME");
+    if (!data.name || data.name == ''){
+        throw new Error("INVALID_NAME");
+    }
+    if(data.class === "WARRIOR"){
+        data.turnsLeft = 20;
+    }
+    if(data.class === "EXPLORER"){
+        data.items = ["Map"];
+
+    }
     try {
-        if(data.class == "WARRIOR"){
-            data.turnsLeft = 20;
-        }
-        if(data.class == "EXPLORER"){
-            data.items = ["Map"];
-        }
       const character = await Character.create(data);
       return character;
     } catch (err) {

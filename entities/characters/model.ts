@@ -26,12 +26,12 @@ const CharaSchema = new mongoose.Schema(
       required: true,
     },
     triggeredEvents: {
-      type: String,
+      type: Array,
       required: true,
       default: [],
     },
     items: {
-      type: String,
+      type: Array,
       required: true,
       default: [],
     },
