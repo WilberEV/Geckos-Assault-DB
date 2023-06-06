@@ -5,6 +5,8 @@ import { auth } from "../../core/middlewares.js";
 
 const userRouter = express.Router()
 
+
+//Create User
 userRouter.post('/', async(req: Request, res: Response, next: NextFunction) => {
     try {
         res.json(await createUser(req.body))
@@ -14,6 +16,7 @@ userRouter.post('/', async(req: Request, res: Response, next: NextFunction) => {
 });
 
 
+//Login User
 userRouter.post('/login', async (req: Request, res: Response, next: NextFunction)=>{
     try{
         res.json(await login(req, res))
@@ -22,6 +25,8 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
     }
 }) 
 
+
+//Find User
 userRouter.get('/:id', auth, async (req: Request, res: Response, next: NextFunction) =>{
     try{
         res.json(await findUser(req.params.id, req.payload))
@@ -31,6 +36,7 @@ userRouter.get('/:id', auth, async (req: Request, res: Response, next: NextFunct
 })
 
 
+//Modify User
 userRouter.put('/:id', auth, async (req: Request, res: Response, next: NextFunction) =>{
     try{
         res.json(await updateUser(req.params.id, req.body, req.payload))
