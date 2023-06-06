@@ -2,6 +2,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import config from './core/config.js';
+import userRouter from "./entities/users/router.js";
 import cors from 'cors'
 
 
@@ -27,6 +28,7 @@ let corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use('/user', userRouter);
 app.get('/',(req, res)=>(res.send('/////OK/////')))
 
 
