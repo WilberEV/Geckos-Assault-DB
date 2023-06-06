@@ -30,6 +30,16 @@ const CharaSchema = new mongoose.Schema(
       required: true,
       default: [],
     },
+    items: {
+      type: String,
+      required: true,
+      default: [],
+    },
+    owner: {
+      type: String,
+      required: true,
+      ref: "User",
+    },
   },
   { versionKey: false, timestamps: true }
 );
