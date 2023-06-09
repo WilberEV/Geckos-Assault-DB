@@ -1,6 +1,7 @@
 import express from "express";
 import {Request, Response, NextFunction} from 'express';
-import {createChara} from "./controler.js"
+import {createChara, findChara} from "./controler.js"
+
 
 const charaRouter = express.Router()
 
@@ -12,6 +13,15 @@ charaRouter.post('/', async(req: Request, res: Response, next: NextFunction) => 
         next(e)
     }
 });
+
+//Find Character by User
+charaRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =>{
+    try{
+        res.json(await findChara(req.params.id, req.payload))
+    } catch(e){
+        next(e)
+    }
+})
 
 
 export default charaRouter
