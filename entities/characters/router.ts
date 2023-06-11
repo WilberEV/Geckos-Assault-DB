@@ -15,9 +15,9 @@ charaRouter.post('/', async(req: Request, res: Response, next: NextFunction) => 
 });
 
 //Find Character by User
-charaRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =>{
+charaRouter.get('/', async (req: Request, res: Response, next: NextFunction) =>{
     try{
-        res.json(await findChara(req.params.id, req.payload))
+        res.json(await findChara(req.query.name as string, req.query.owner as string))
     } catch(e){
         next(e)
     }

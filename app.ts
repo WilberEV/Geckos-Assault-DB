@@ -6,8 +6,6 @@ import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
 import cors from 'cors'
 
-
-
 const app = express();
 
 mongoose.connect(config.DB_URL)

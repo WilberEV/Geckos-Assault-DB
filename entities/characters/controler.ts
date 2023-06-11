@@ -1,3 +1,4 @@
+import { idText } from "typescript";
 import Character from "./model.js";
 import { Request, Response } from "express";
 
@@ -21,9 +22,11 @@ export const createChara = async (data) => {
 };
 
 /////Find Character/////
-export const findChara = async (ID) => {
+export const findChara = async (chara: String, ID) => {
   try {
-    return await Character.find({ owner: ID });
+    if(chara === 'ALL'){
+      return await Character.find({ owner: ID });
+    } return await Character.find( { $and: [{ name: chara }, { owner: ID }]});
   } catch (err) {
     throw new Error("NOT_FOUND");
   }
