@@ -34,6 +34,9 @@ export const findChara = async (chara: String, ID) => {
 
 /////Update Character/////
 export const modifyChara = async (data, chara, ID) => {
+
+  console.log(data, chara, ID)
+
   try {
     return await Character.findOneAndUpdate(
       { $and: [{ name: chara }, { owner: ID }]},
