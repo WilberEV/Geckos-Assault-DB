@@ -42,6 +42,8 @@ export const modifyChara = async (data, chara, ID) => {
         turnsPlayed: data.turnsPlayed,
         triggeredEvents: data.triggeredEvents,
         items: data.items,
+        xCoordinate: data.xCoordinate,
+        yCoordinate: data.yCoordinate,
       },
       { new: true }
     )

@@ -35,6 +35,16 @@ const CharaSchema = new mongoose.Schema(
       required: true,
       default: [],
     },
+    xCoordinate: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    yCoordinate: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     owner: {
       type: String,
       required: true,
