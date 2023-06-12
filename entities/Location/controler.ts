@@ -2,7 +2,7 @@ import Location from "./model.js";
 
 
 /////Create Location/////
-export const createChara = async (data) => {
+export const createLocation = async (data) => {
     try {
       const location = await Location.create(data);
       return location;

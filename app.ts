@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import config from './core/config.js';
 import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
+import locationRouter from "./entities/Location/router.js"
 import cors from 'cors'
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/user', userRouter);
 app.use('/characters', charaRouter);
+app.use('/location', locationRouter);
 app.get('/',(req, res)=>(res.send('/////OK/////')))
 
 
