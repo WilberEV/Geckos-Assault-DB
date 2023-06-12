@@ -31,3 +31,21 @@ export const findChara = async (chara: String, ID) => {
     throw new Error("NOT_FOUND");
   }
 };
+
+/////Update Character/////
+export const modifyChara = async (data, chara, ID) => {
+  try {
+    return await Character.findOneAndUpdate(
+      { $and: [{ name: chara }, { owner: ID }]},
+      {
+        turnsLeft: data.turnsLeft,
+        turnsPlayed: data.turnsPlayed,
+        triggeredEvents: data.triggeredEvents,
+        items: data.items,
+      },
+      { new: true }
+    )
+  } catch (err) {
+    throw new Error("NOT_FOUND");
+  }
+};
