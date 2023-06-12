@@ -16,7 +16,7 @@ locationRouter.post('/', async(req: Request, res: Response, next: NextFunction) 
 //Find Character by User
 locationRouter.get('/', async (req: Request, res: Response, next: NextFunction) =>{
     try{
-        res.json(await findLocation(req.query.X as string, req.query.Y as string))
+        res.json(await findLocation(req.query.xCoordinate, req.query.yCoordinate))
     } catch(e){
         next(e)
     }

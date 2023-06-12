@@ -26,6 +26,6 @@ const LocationSchema = new mongoose.Schema(
   { versionKey: false, timestamps: true }
 );
 
-const Location = mongoose.model("Character", LocationSchema);
+const Location = mongoose.model("Location", LocationSchema);
 
 export default Location;
