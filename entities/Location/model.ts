@@ -11,16 +11,22 @@ const LocationSchema = new mongoose.Schema(
       required: true,
     },
     events: {
-        type: Boolean,
-        required: true,
-      },
+      type: Boolean,
+      required: true,
+    },
     description: {
-      type: String,
+      type: Array,
       required: true,
     },
     background: {
+      type: String,
+      required: true,
+    },
+    answer: {
+      type: Boolean,
+    },
+    effect: {
         type: String,
-        required: true,
       },
   },
   { versionKey: false, timestamps: true }

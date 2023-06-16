@@ -14,7 +14,7 @@ export const createLocation = async (data) => {
 /////Find Location/////
 export const findLocation = async (X, Y) => {
     try {
-        return await Location.find( { $and: [{ xCoordinate: X }, { yCoordinate: Y }]});
+        return await Location.findOne( { $and: [{ xCoordinate: X }, { yCoordinate: Y }]});
     } catch (err) {
       throw new Error("NOT_FOUND");
     }
