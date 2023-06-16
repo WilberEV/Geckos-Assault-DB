@@ -17,6 +17,7 @@ mongoose.connect(config.DB_URL)
     console.log(err, "Problemas para conectar a la base de datos");
 });
 
+
 let corsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
