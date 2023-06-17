@@ -26,8 +26,11 @@ const LocationSchema = new mongoose.Schema(
       type: Boolean,
     },
     effect: {
-        type: String,
+        type: Array,
       },
+    hints: {
+      type: String,
+    },
   },
   { versionKey: false, timestamps: true }
 );
