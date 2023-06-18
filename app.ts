@@ -6,7 +6,7 @@ import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
 import locationRouter from "./entities/Location/router.js"
 import itemRouter from "./entities/items/router.js";
-import { seedUsers } from "./core/seeders/seeders.js";
+import { seedUsers } from "./core/seeders/userSeeders.js";
 
 import cors from 'cors'
 
