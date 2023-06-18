@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const ItemSchema = new mongoose.Schema(
   {
     name: {
-      type: Number,
+      type: String,
       required: true,
     },
     description: {
