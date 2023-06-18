@@ -2,7 +2,7 @@ import Items from "./model.js";
 
 
 /////Create Item/////
-export const createLocation = async (data) => {
+export const createItem = async (data) => {
     try {
       const location = await Items.create(data);
       return location;
@@ -12,7 +12,7 @@ export const createLocation = async (data) => {
   };
 
 /////Find Item/////
-export const findLocation = async (object) => {
+export const findItem = async (object) => {
     try {
         return await Items.findOne({name: object});
     } catch (err) {

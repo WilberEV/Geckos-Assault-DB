@@ -5,6 +5,7 @@ import config from './core/config.js';
 import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
 import locationRouter from "./entities/Location/router.js"
+import itemRouter from "./entities/items/router.js";
 
 import cors from 'cors'
 
@@ -34,6 +35,7 @@ app.use(cors(corsOptions));
 app.use('/user', userRouter);
 app.use('/characters', charaRouter);
 app.use('/location', locationRouter);
+app.use('/items', itemRouter);
 app.get('/',(req, res)=>(res.send('/////OK/////')))
 
 
