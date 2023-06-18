@@ -4,7 +4,7 @@ import {createItem, findItem} from "./controler.js"
 
 const itemRouter = express.Router()
 
-//Create character
+//Create items
 itemRouter.post('/', async(req: Request, res: Response, next: NextFunction) => {
     try {
         res.json(await createItem(req.body))
@@ -13,10 +13,10 @@ itemRouter.post('/', async(req: Request, res: Response, next: NextFunction) => {
     }
 });
 
-//Find Character by User
+//Find items
 itemRouter.get('/:name', async (req: Request, res: Response, next: NextFunction) =>{
     try{
-        res.json(await findItem(req.query.name))
+        res.json(await findItem(req.params.name))
     } catch(e){
         next(e)
     }

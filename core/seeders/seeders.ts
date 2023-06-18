@@ -4,7 +4,7 @@ import config from "../config.js";
 import  User  from "../../entities/users/model.js";
 
 export const seedUsers = async (count) => {
-    let testUsers = [];
+    let testUsers:any = [];
   
     for (let i = 0; i < count; i++) {
       const randomUser = {

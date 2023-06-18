@@ -1,7 +1,7 @@
 import express from "express";
 import { createLocation, findLocation } from "./controler.js";
 const locationRouter = express.Router();
-//Create character
+//Create Location
 locationRouter.post('/', async (req, res, next) => {
     try {
         res.json(await createLocation(req.body));
@@ -10,7 +10,7 @@ locationRouter.post('/', async (req, res, next) => {
         next(e);
     }
 });
-//Find Character by User
+//Find Location
 locationRouter.get('/', async (req, res, next) => {
     try {
         res.json(await findLocation(req.query.xCoordinate, req.query.yCoordinate));
