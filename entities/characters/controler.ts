@@ -51,3 +51,14 @@ export const modifyChara = async (data, chara, ID) => {
     throw new Error("NOT_FOUND");
   }
 };
+
+/////Delete Character/////
+export const deleteChara = async (chara, ID) => {
+  try {
+    return await Character.findOneAndDelete(
+      { $and: [{ name: chara }, { owner: ID }]}
+    )
+  } catch (err) {
+    throw new Error("NOT_FOUND");
+  }
+};

@@ -1,6 +1,6 @@
 import express from "express";
 import {Request, Response, NextFunction} from 'express';
-import {createChara, findChara, modifyChara} from "./controler.js"
+import {createChara, findChara, modifyChara, deleteChara} from "./controler.js"
 
 
 const charaRouter = express.Router()
@@ -32,6 +32,14 @@ charaRouter.put('/', async (req: Request, res: Response, next: NextFunction) =>{
     }
 })
 
+//Delete Character
+charaRouter.delete('/', async (req: Request, res: Response, next: NextFunction) =>{
+    try{
+        res.json(await deleteChara(req.query.name as string, req.query.owner as string))
+    } catch(e){
+        next(e)
+    }
+})
 
 
 export default charaRouter

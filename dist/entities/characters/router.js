@@ -1,5 +1,5 @@
 import express from "express";
-import { createChara, findChara, modifyChara } from "./controler.js";
+import { createChara, findChara, modifyChara, deleteChara } from "./controler.js";
 const charaRouter = express.Router();
 //Create character
 charaRouter.post('/', async (req, res, next) => {
@@ -23,6 +23,15 @@ charaRouter.get('/', async (req, res, next) => {
 charaRouter.put('/', async (req, res, next) => {
     try {
         res.json(await modifyChara(req.body, req.query.name, req.query.owner));
+    }
+    catch (e) {
+        next(e);
+    }
+});
+//Delete Character
+charaRouter.delete('/', async (req, res, next) => {
+    try {
+        res.json(await deleteChara(req.query.name, req.query.owner));
     }
     catch (e) {
         next(e);
