@@ -5,6 +5,7 @@
   "main": "mainjs",
   "type": "module",
   "scripts": {
+    "userSeeder": "node -r dotenv-safe/config ./core/seeders/userSeeder.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node -r dotenv-safe/config ./dist/app.js",
     "start_dev": "nodemon"
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@types/express": "^4.17.17",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",

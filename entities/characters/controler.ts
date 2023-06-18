@@ -1,6 +1,4 @@
-import { idText } from "typescript";
 import Character from "./model.js";
-import { Request, Response } from "express";
 
 /////Create character/////
 export const createChara = async (data) => {
