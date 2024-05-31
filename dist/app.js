@@ -6,14 +6,12 @@ import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
 import locationRouter from "./entities/Location/router.js";
 import itemRouter from "./entities/items/router.js";
-import { seedUsers } from "./core/seeders/seeders.js";
 import cors from 'cors';
 const app = express();
 mongoose.connect(config.DB_URL)
     .then(() => {
     console.log("Conectado a la base de datos");
 })
-    .then(() => seedUsers(20))
     .catch((err) => {
     console.log(err, "Problemas para conectar a la base de datos");
 });

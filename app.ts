@@ -6,7 +6,6 @@ import userRouter from "./entities/users/router.js";
 import charaRouter from "./entities/characters/router.js";
 import locationRouter from "./entities/Location/router.js"
 import itemRouter from "./entities/items/router.js";
-import { seedUsers } from "./core/seeders/userSeeders.js";
 
 import cors from 'cors'
 
@@ -16,7 +15,6 @@ mongoose.connect(config.DB_URL)
   .then(() => {
     console.log("Conectado a la base de datos");
   })
-  .then(()=>seedUsers(20))
 
   .catch((err) => {
     console.log(err, "Problemas para conectar a la base de datos");
@@ -35,8 +33,6 @@ let corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/user', userRouter);
-app.use('/characters', charaRouter);
-app.use('/location', locationRouter);
 app.use('/items', itemRouter);
 app.get('/',(req, res)=>(res.send('/////OK/////')))
 
