@@ -26,7 +26,7 @@ export const createUser = async (data) => {
 
   /////Login/////
 export const login = async (req: Request, res: Response) => {
-    const user = await User.findOne({ email: req.body.email }).select(
+    const user = await User.findOne({ user: req.body.user }).select(
       "+password"
     );
     if (!user || !(await bcrypt.compare(req.body.password, user.password)))
@@ -61,7 +61,6 @@ export const updateUser = async (ID, data, token) => {
       return await User.findOneAndUpdate(
         { _id: token.id },
         {
-          email: data.email,
           password: data.password,
         },
         { new: true }

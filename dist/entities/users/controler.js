@@ -19,7 +19,7 @@ export const createUser = async (data) => {
 };
 /////Login/////
 export const login = async (req, res) => {
-    const user = await User.findOne({ email: req.body.email }).select("+password");
+    const user = await User.findOne({ user: req.body.user }).select("+password");
     if (!user || !(await bcrypt.compare(req.body.password, user.password)))
         throw new Error("INVALID_CREDENTIALS");
     const token = jwt.sign({ id: user._id, role: user.role }, config.SECRET);
@@ -45,7 +45,6 @@ export const updateUser = async (ID, data, token) => {
     data.password = await bcrypt.hash(data.password, config.HASH_ROUNDS);
     if (token.role !== "ADMIN") {
         return await User.findOneAndUpdate({ _id: token.id }, {
-            email: data.email,
             password: data.password,
         }, { new: true });
     }

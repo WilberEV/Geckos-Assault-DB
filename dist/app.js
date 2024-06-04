@@ -3,9 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import config from './core/config.js';
 import userRouter from "./entities/users/router.js";
-import charaRouter from "./entities/characters/router.js";
-import locationRouter from "./entities/Location/router.js";
 import itemRouter from "./entities/items/router.js";
+import enemyRouter from "./entities/enemies/router.js";
 import cors from 'cors';
 const app = express();
 mongoose.connect(config.DB_URL)
@@ -26,9 +25,8 @@ let corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/user', userRouter);
-app.use('/characters', charaRouter);
-app.use('/location', locationRouter);
 app.use('/items', itemRouter);
+app.use('/enemies', enemyRouter);
 app.get('/', (req, res) => (res.send('/////OK/////')));
 app.listen(config.PORT, () => console.log(`Servidor levantado en ${config.PORT}`));
 //# sourceMappingURL=app.js.map
