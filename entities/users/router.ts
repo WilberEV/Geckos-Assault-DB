@@ -37,12 +37,12 @@ userRouter.get('/:id', auth, async (req: Request, res: Response, next: NextFunct
 
 
 //Modify User
-userRouter.put('/:id', auth, async (req: Request, res: Response, next: NextFunction) =>{
-    try{
-        res.json(await updateUser(req.params.id, req.body, req.payload))
-    } catch(e){
-        next(e)
+userRouter.put('/:id', auth, async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      res.json(await updateUser(req.body, req.params.id));
+    } catch (e) {
+      next(e);
     }
-})
+});
 
 export default userRouter

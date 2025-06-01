@@ -32,7 +32,7 @@ userRouter.get('/:id', auth, async (req, res, next) => {
 //Modify User
 userRouter.put('/:id', auth, async (req, res, next) => {
     try {
-        res.json(await updateUser(req.params.id, req.body, req.payload));
+        res.json(await updateUser(req.body, req.params.id));
     }
     catch (e) {
         next(e);
