@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         default: {
             "Level": 1,
             "HP": {
-                "Max": 35,
+                "MAX": 35,
                 "Current": 35
             },
             "Attack": 20,
