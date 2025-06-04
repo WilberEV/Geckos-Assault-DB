@@ -45,6 +45,16 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: false,
         default: 0
+    },
+    maxArea: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    maxStratum: {
+        type: Number,
+        required: false,
+        default: 0
     }
 }, { versionKey: false, timestamps: true });
 const User = mongoose.model("User", UserSchema);
