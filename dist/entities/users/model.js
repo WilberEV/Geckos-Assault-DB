@@ -28,7 +28,11 @@ const UserSchema = new mongoose.Schema({
             "Attack": 20,
             "Defense": 20,
             "Charisma": 999,
-            "EXP": 0
+            "EXP": 0,
+            "expMulti": {
+                "Min": 0,
+                "Max": 25
+            },
         },
     },
     items: {
